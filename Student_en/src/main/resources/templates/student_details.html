@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Student details</h1>
+ <table>
+  
+  <tr th:each ="b :${student_data}">
+	   <th scope="row"></th>
+	    <th scope="col">  id:</th>
+	    
+    <td th:text="${b.id}"></td>
+     <th scope="col">idt:</th>
+     <td th:text="${b.idt}"></td>
+      <th scope="col">idn:</th>
+     <td th:text="${b.idn}"></td>
+      <th scope="col">Name:</th>
+     <td th:text="${b.Name}"></td>
+     <th scope="col">Gender:</th>
+    <td th:text="${b.Gender}"></td>
+     <th scope="col">Rel:</th>
+      <td th:text="${b.Rel}"></td>
+       <th scope="col">CitizenShip:</th>
+     <td th:text="${b.CitizenShip}"></td>
+      <th scope="col">Dob:</th>
+       <td th:text="${b.Dob}"></td>
+       <th scope="col">Cardtype:</th>
+         <td th:text="${b.Cardtype}"></td>
+          <th scope="col">Expire:</th>
+           <td th:text="${b.Expire}"></td>
+            <th scope="col">Doi:</th>
+             <td th:text="${b.Doi}"></td>
+  </tr>
+ 
+</table> 
+</body>
+</html>

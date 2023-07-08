@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<Html>
+<head>
+<title>Student</title>
+<link rel="Stylesheet" href="Student.css">
+<script type="text/javascript">
+  function nullCheck(){
+  var idn=document.stu.idn.value;
+  var idt=document.stu.idt.value;
+  var name=document.stu.Name.value;
+  var relation=document.stu.Rel.value;
+  var dob=document.stu.Dob.value;
+  var gender=document.stu.Gender.value;
+  var citizen=document.stu.CitizenShip.value;
+  var card=document.stu.Cardtype.value;
+  var exp=document.stu.Expire.value;
+  var doi=document.stu.Doi.value;
+  if(idn==""|| idn==null ){
+  alert("Please Select Type Identy Type ");
+  return false;
+  }else if(idt==""|| idt==null){
+  alert("Identify Number doesn't Blank");
+  return false;
+  }else if(name==""|| name==null){
+  alert("name is Doesn't Blank");
+  return false;
+  }else if(citizen=="" || citizen==null){
+  alert("Please select One CitizenShip");
+  return false;
+  }else if(relation=="" || relation==null){
+  alert("please select Relation Type");
+  return false;
+  }else if(dob=="" || dob==null){
+  alert("Please Enter the Date Of Birth");
+  return false;
+  }else if(gender=="" || gender==null){
+  alert("Select The Gender");
+  return false;
+  }else if(name.length<3){
+  alert("Enter the Valid Name");
+  return false;
+  }else if(document.getElementById("CitizenShip").value=="Non-citizen"){
+  if(card=="" || card==null){
+  alert("select Card Type");
+  return false;
+  }else if(doi=="" || doi==null){
+  alert("Enter the Date Of Issue");
+  return false;
+  }else if(exp=="" || exp==null){
+  alert("Enter the Date Of Expire");
+  return false;
+  }
+  }
+  }
+  function changeFun(){
+  if(document.getElementById("CitizenShip").value=="Non-citizen"){
+  	document.getElementById("app").style.display="block";
+  }
+  }
+  function checkDate(){
+ var Date=document.stu.Dob.value;
+ var doi=document.stu.Doi.value;
+ var exp=document.stu.Expire.value;
+   var date=/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+   if(!Date.match(date)){
+   alert("Invalid Date Format must contain DD-MM-YEAR");
+   return false;
+   }else if(document.getElementById("CitizenShip").value=="Non-citizen"){
+   if(!doi.match(date)){
+   alert("Invalid Date Format must contain DD-MM-YEAR");
+   return false;
+ }else if(!exp.match(date)){
+ alert("Invalid Date Format must contain DD-MM-YEAR");
+   return false;
+   }
+   }
+   }
+   function checkKey(obj,event){
+   var inp=obj.name;
+   if(inp=="idt"){
+   var k=event.keyCode;
+   if((k>32 && k<47) || (k>58 && k<64) || (k>91 && k<96) || (k>123 && k<126)){
+   alert("Special character Not allowed");
+   return false;
+   }
+   }else if(inp=="Name"){
+   var k=event.keyCode;
+   if((k>32 && k<58) || (k>58 && k<64) || (k>91 && k<96) || (k>123 && k<126)){
+   alert("Number and Special character Not allowed");
+   return false;
+   }
+   }
+   }
+   function checkSubmit(){
+   var retvalue;
+   retvalue=nullCheck();
+   if(retvalue==false){return retvalue;}
+   
+   retvalue=checkDate();
+   if(retvalue==false){return retvalue;}
+   }
+   
+   </script>
+</head>
+<body>
+<form name="stu" action="studser" method="POST">
+<div id="button" >
+<button type="button" onclick="location.href='Retriving'"
+	style="width: 250px;">Retriving All Data</button>
+</div>
+<div id="IDnum"><label for="idt">Id Number:</label> <input
+	type="text" id="idt" name="idt" autofocus minlength="4" maxlength="10"
+	size="7" onkeypress="return checkKey(this,event)"> <select
+	name="idn" id="idn">
+	<option value="">Please Select One</option>
+	<option value="UNI">UNI</option>
+	<option value="FIN">FIN</option>
+	<option value="PPN">PPN</option>
+	<option value="XIN">XIN</option>
+</select></div>
+
+<br>
+<div id="name"><label for="name">Name:</label> <input type="text"
+	id="Name" name="Name" minlength="4" maxlength="10" size="30" onkeypress="return checkKey(this,event)"></div>
+<br>
+<div id="Gen"><label for="Gender">Gender:</label> <input
+	type="radio" id="Gender" name="Gender" value="Male"> Male  <input
+	type="radio" id="Gender" name="Gender" value="Female">Female</div>
+<div id=Relationship><label for="Rel">Relationship to:</label> <select
+	name="Rel" id="Rel" style="width: 250px;">
+	<option value="">Please Select One</option>
+	<option value="Husband/Wife">Husband/Wife</option>
+	<option value="Son/Daughter">Son/Daughter</option>
+	<option value="Brother/Sister">Brother/Sister</option>
+	<option value="Father/mother">Father/mother</option>
+</select></div>
+<br>
+<div id="Citizen"><label for="CitizenShip">CitizenShip:</label> <select
+	name="CitizenShip" id="CitizenShip" onchange="changeFun()"style="width: 200px;">
+	<option value="">Please Select One</option>
+	<option value="Singapore Citizen">Singapore Citizen</option>
+	<option value="Singapore Permanent Resident">Singapore
+	Permanent Resident</option>
+	<option value="Non-citizen">Non-citizen</option>
+
+</select></div>
+<div id=" DOB"><label for="DOB">Date of Birth:</label> <input
+	type="text" id="Dob" name="Dob" minlength="10" maxlength="10" size="20">
+<label for="DOB"><b>(DD/MM/YYYY)</b></label></div>
+<br>
+<br>
+<label for="Sentence"><b>Appicable for occupier who is a
+non-ciziten with >=6 Months Visit pass</b></label>
+<div id="app" style="display:none;">
+<div id="card"><label for="Cardtype">Card Type :</label> <select
+	name="Cardtype" id="Cardtype" style="width: 200px;">
+	<option value="">Please select One</option>
+	<option value="Social Visit Pass">Social Visit Pass</option>
+	<option value="Work permit">Work permit</option>
+	<option value="Empolyment Pass">Empolyment Pass</option>
+	<option value="Dependent pass">Dependent pass</option>
+	<option value="Student Pas">Student Pass</option>
+</select></div>
+<br>
+<div id="Exp"><label for="Expire">Expire Date :</label> <input
+	type="text" id="Expire" name="Expire" minlength="10" maxlength="10"
+	size="20" placeholder="DD/MM/YYYY"></div>
+<div id="DOI"><label for="Doi">Date of Issues:</label> <input
+	type="text" id="Doi" name="Doi" placeholder="DD/MM/YYYY" minlength="10"
+	maxlength="10" size="20"></div>
+	</div>
+<input type="submit" value="Save" onclick="return checkSubmit();">
+</form>
+</body>
+</Html>

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+Body{
+   
+   
+    border: 1px solid rgb(1, 1, 15);
+   
+    margin: 75px 0px 0px 100px ;
+    height: 300px;
+    padding:0px 50px 50px 50px ;
+   width: 70%;
+ 
+
+}
+#idt{
+    margin: 50px 0px 0px 50px ;
+}
+#Name{
+    margin: 0px 0px 0px 90px ;
+}
+#Rel{
+    margin: 0px 0px 0px 18px ;
+}
+#Dob{
+    margin: 0px 0px 0px 30px ;
+}
+#Cardtype{
+    margin: 0px 0px 0px 40px ;
+
+}
+#Doi{
+    margin: 0px 0px 0px 20px ;
+}
+#button{
+    float: right;
+    margin: 50px 0px 0px 0px ;
+}
+#Gen{
+    float: right;
+    margin: 0px 0px 0px 0px ;
+}
+#Citizen{
+    float: right;
+    margin: 0px 0px 0px 0px ;
+}
+#Exp{
+    float: right;
+    margin: 0px 0px 0px 0px ;
+}
